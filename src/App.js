@@ -4,7 +4,10 @@ import { useState, useEffect } from 'react';
 const App = () => {
 
   const [randomBeer, setRandomBeer] = useState('');
-  const [isError, setIsError] = useState('');
+  const [isError, setIsError] = useState({
+    error: false,
+    message: ''
+  });
 
   const handleData = async () => {
     try {
@@ -13,17 +16,17 @@ const App = () => {
 
       if(response.status !== 200) {
         console.log("error");
-        throw new Error ('Error fetching data');
+        throw new Error ('oooops...could not return data');
       }
        // parse data into json
        const data = await response.json();
       //  console.log(data[0].name);
-       setRandomBeer(data[0].name);
+       setRandomBeer(data[0]);
        console.log(randomBeer);
 
     // catch errors that occur in the try - throw error message generated from the throw new Error
     } catch(error) {
-      setIsError(error.message);
+      setIsError({ error: true, message: error.message})
       console.log(isError);
     }
   }
@@ -33,14 +36,15 @@ const App = () => {
     handleData();
   }, [])
 
-  if(isError) {
-    return <div>{isError}</div>
+  if(isError.error) {
+    return <div>{isError.message}</div>
   }
 
   return (
     <div>
       <h1>Brewdog Random beer generator</h1>
-      <h2>Todays random brewdog is: {randomBeer}</h2>
+      <h2>Todays random brewdog is: {randomBeer.name}</h2>
+      <h6>Todays random brewdog is: {randomBeer.description}</h6>
       <button onClick={handleData}>Get random beer</button>
     </div>
   )

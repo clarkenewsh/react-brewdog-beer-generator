@@ -36,6 +36,7 @@ const App = () => {
     handleData();
   }, [])
 
+  
   if(isError.error) {
     return <div>{isError.message}</div>
   }
@@ -45,6 +46,7 @@ const App = () => {
       <h1>Brewdog Random beer generator</h1>
       <h2>Todays random brewdog is: {randomBeer.name}</h2>
       <h6>Todays random brewdog is: {randomBeer.description}</h6>
+      <img src={randomBeer.image_url} />
       <button onClick={handleData}>Get random beer</button>
     </div>
   )

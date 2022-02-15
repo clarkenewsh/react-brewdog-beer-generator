@@ -1,0 +1,4 @@
+.beersList {
+    display: flex;
+    flex-wrap: wrap;
+}

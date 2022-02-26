@@ -1,5 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import BeersList from './components/BeersList';
 
 const App = () => {
 
@@ -75,19 +76,16 @@ const App = () => {
 
   return (
     <div>
-      <h1>Brewdog Random beer generator</h1>
-      <h2>Todays random brewdog is: {randomBeer.name}</h2>
-      <h6>Todays random brewdog is: {randomBeer.description}</h6>
-      <img src={randomBeer.image_url} />
-      <button onClick={handleData}>Get random beer</button>
-      {allBeers.map((beer, index) => {
-        return (
-          <div key={index}>
-            <h1>{beer.name}</h1>
-            <h4>{beer.tagline}</h4>
-        </div>
-        ) 
-      })}
+      <div id="random-beer">
+        <header>
+          <h1>Brewdog Random beer generator</h1>
+        </header>
+        <h2>Todays random brewdog is: {randomBeer.name}</h2>
+        <h6>{randomBeer.description}</h6>
+        <img src={randomBeer.image_url} />
+        <button onClick={handleData}>Get random beer</button>
+      </div>
+      <BeersList allBeers={allBeers} title='All beers' />
     </div>
 
   )

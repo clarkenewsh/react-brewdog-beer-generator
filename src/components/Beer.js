@@ -6,7 +6,7 @@ const Beer = ({ beer }) => {
         <h1>{beer.name}</h1>
         <h4>{beer.tagline}</h4>
         {/* <p>{ beer.description }</p> */}
-        <img src={beer.image_url}></img>
+        <img src={beer.image_url} alt={'random brewdog beer'}></img>
         
         <p>Pair with food: {beer.food_pairing}</p>
     </div>

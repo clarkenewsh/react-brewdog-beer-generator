@@ -80,9 +80,9 @@ const App = () => {
         <header>
           <h1>Brewdog Random beer generator</h1>
         </header>
-        <h2>Todays random brewdog is: {randomBeer.name}</h2>
+        <h2>Todays random Brewdog is: {randomBeer.name}</h2>
         <h6>{randomBeer.description}</h6>
-        <img src={randomBeer.image_url} />
+        <img src={randomBeer.image_url} alt={'random brewdog beer'} />
         <button onClick={handleData}>Get random beer</button>
       </div>
       <BeersList allBeers={allBeers} title='All beers' />

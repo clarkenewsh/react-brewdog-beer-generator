@@ -8,7 +8,7 @@ const Beer = ({ beer }) => {
         {/* <p>{ beer.description }</p> */}
         <img src={beer.image_url} alt={'random brewdog beer'}></img>
         
-        <p>Pair with food: {beer.food_pairing}</p>
+        <p><strong>Pair with food:</strong> {beer.food_pairing}</p>
     </div>
  )
 };
